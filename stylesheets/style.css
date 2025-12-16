@@ -128,3 +128,26 @@ h1 {
     font-size: 0.85em;
     color: #666;
 }
+
+/* Draggable Dharma Chakra */
+#dharma-chakra {
+    position: fixed;
+    bottom: 220px;
+    right: 240px;
+    width: 80px;
+    height: 80px;
+    cursor: grab;
+    z-index: 1000;
+    opacity: 0.85;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+    touch-action: none;
+    user-select: none;
+}
+
+#dharma-chakra:hover {
+    opacity: 1;
+}
+
+#dharma-chakra:active {
+    cursor: grabbing;
+}

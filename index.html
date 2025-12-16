@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
+    <!-- Draggable Dharma Chakra -->
+    <img id="dharma-chakra" src="images/dharma-chakra.png" alt="Dharma Chakra" draggable="false">
     <div id="menu">
         <p><a href="https://scholar.google.com/citations?user=xiKrcQgAAAAJ&hl=en&oi=ao">Research</a></p>
         <p><a href="https://devpost.com/VineethVajipey">Devpost</a></p>
@@ -107,5 +109,30 @@
     </a>
     </div>
 
+    <!-- Interact.js for drag functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script>
+      // Make the Dharma Chakra draggable
+      interact('#dharma-chakra').draggable({
+        inertia: true,
+        modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'body',
+            endOnly: true
+          })
+        ],
+        listeners: {
+          move(event) {
+            const target = event.target;
+            const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+            const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+            
+            target.style.transform = `translate(${x}px, ${y}px)`;
+            target.setAttribute('data-x', x);
+            target.setAttribute('data-y', y);
+          }
+        }
+      });
+    </script>
 </body>
 </html>
