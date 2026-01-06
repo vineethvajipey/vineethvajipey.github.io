@@ -1,138 +1,268 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Vineeth Vajipey</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-</head>
-<body>
-    <!-- Draggable Dharma Chakra -->
-    <img id="dharma-chakra" src="images/dharma-chakra.png" alt="Dharma Chakra" draggable="false">
-    <div id="menu">
-        <p><a href="https://scholar.google.com/citations?user=xiKrcQgAAAAJ&hl=en&oi=ao">Research</a></p>
-        <p><a href="https://devpost.com/VineethVajipey">Devpost</a></p>
-        <p><a href="https://github.com/vineethvajipey">Github</a></p>
-        <p><a href="https://www.linkedin.com/in/vineeth-vajipey/">Linkedin</a></p>
-    </div>
+    <link rel="icon" type="image/gif" href="images/skele-head.gif" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/tailwind.css" />
+  </head>
+  <body>
+    <!-- Dharma Wheel Navigation -->
+    <button
+      class="fixed bottom-8 right-8 z-20 bg-transparent border-none p-0 outline-none touch-none select-none gpu-accelerated dharma-mobile"
+      style="cursor: url('images/cursor-hover.png') 0 0, grab"
+      aria-label="Spin wheel to next background"
+      id="dharmaWheelContainer"
+    >
+      <svg
+        class="w-18 h-18 transition-transform duration-100 ease-out drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] gpu-accelerated"
+        id="dharmaWheel"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="42"
+          fill="none"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1.5"
+        />
+        <circle cx="50" cy="50" r="5" fill="rgba(230, 230, 230, 0.9)" />
+        <line
+          x1="50"
+          y1="50"
+          x2="50"
+          y2="8"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="79.7"
+          y2="20.3"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="92"
+          y2="50"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="79.7"
+          y2="79.7"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="50"
+          y2="92"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="20.3"
+          y2="79.7"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="8"
+          y2="50"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <line
+          x1="50"
+          y1="50"
+          x2="20.3"
+          y2="20.3"
+          stroke="rgba(230, 230, 230, 0.9)"
+          stroke-width="1"
+        />
+        <circle cx="50" cy="8" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="79.7" cy="20.3" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="92" cy="50" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="79.7" cy="79.7" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="50" cy="92" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="20.3" cy="79.7" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="8" cy="50" r="6" fill="rgba(230, 230, 230, 0.9)" />
+        <circle cx="20.3" cy="20.3" r="6" fill="rgba(230, 230, 230, 0.9)" />
+      </svg>
+    </button>
 
-    <br>
-    <br>
-
-    <center>
-      <div id="title_card" style="margin-top: 150px;"">
-        <img id="slideshow" src="images/flow.JPG" alt="along the flow" width="575">
-        <br>
-        <h3> Vineeth Vajipey</h3>
-
-
+    <!-- Hero content that transforms into sticky header -->
+    <div
+      class="fixed inset-0 w-full h-screen flex items-center justify-center px-[10vw] z-50 pointer-events-none"
+      id="heroContent"
+    >
+      <div
+        class="flex items-center origin-center gpu-accelerated"
+        id="heroInner"
+      >
+        <div class="flex flex-col items-center">
+          <div
+            class="aspect-square w-64 max-w-[35vw] -mb-16 -ml-40 orbit-mobile"
+            id="orbit1"
+          ></div>
+          <img
+            src="images/skele-bod.gif"
+            alt="skeleton"
+            class="h-[53vh] max-w-[70vw] pr-[10vw] pl-[5vw] gpu-accelerated"
+            id="heroSkeleton"
+          />
+        </div>
+        <div class="flex flex-col items-center">
+          <img
+            src="images/vineeth-name.png"
+            alt="Vineeth"
+            id="heroName"
+            class="gpu-accelerated"
+          />
+          <div class="flex items-center mt-6 pointer-events-auto">
+            <a
+              href="https://github.com/vineethvajipey"
+              class="relative flex items-center justify-center no-underline group"
+              target="_blank"
+            >
+              <span
+                class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-black/80 text-white px-2.5 py-1 rounded text-[11px] font-sans tracking-wide whitespace-nowrap opacity-0 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-black after:border-t-opacity-80"
+                >GitHub</span
+              >
+            </a>
+            <div class="w-12 h-px bg-white/50"></div>
+            <a
+              href="https://www.linkedin.com/in/vineeth-vajipey/"
+              class="relative flex items-center justify-center no-underline group"
+              target="_blank"
+            >
+              <span
+                class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-black/80 text-white px-2.5 py-1 rounded text-[11px] font-sans tracking-wide whitespace-nowrap opacity-0 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-black after:border-t-opacity-80"
+                >LinkedIn</span
+              >
+            </a>
+            <div class="w-12 h-px bg-white/50"></div>
+            <a
+              href="https://devpost.com/VineethVajipey"
+              class="relative flex items-center justify-center no-underline group"
+              target="_blank"
+            >
+              <span
+                class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M6.002 1.61L0 12.004L6.002 22.39h11.996L24 12.004L17.998 1.61H6.002zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595V5.694zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853H10.112z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-black/80 text-white px-2.5 py-1 rounded text-[11px] font-sans tracking-wide whitespace-nowrap opacity-0 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-black after:border-t-opacity-80"
+                >Devpost</span
+              >
+            </a>
+            <div class="w-12 h-px bg-white/50"></div>
+            <a
+              href="https://scholar.google.com/citations?user=xiKrcQgAAAAJ&hl=en&oi=ao"
+              class="relative flex items-center justify-center no-underline group"
+              target="_blank"
+            >
+              <span
+                class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
+              >
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 bg-black/80 text-white px-2.5 py-1 rounded text-[11px] font-sans tracking-wide whitespace-nowrap opacity-0 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-black after:border-t-opacity-80"
+                >Scholar</span
+              >
+            </a>
+          </div>
+        </div>
       </div>
-    </center>
+    </div>
 
-    <script>
-      const imageElement = document.getElementById('slideshow');
-      const images = ['images/flow.JPG', 'images/goons.JPG', 'images/gothic.JPG', 'images/brozas.JPG', ];
-    
-      let currentIndex = 0;
-      function changeImage() {
-          currentIndex = (currentIndex + 1) % images.length;
-          imageElement.src = images[currentIndex];
-      }
-      setInterval(changeImage, 2000);
-    </script>
+    <!-- Section 1: First background -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated"
+      id="heroSection"
+      style="background-image: url('images/backgrounds/hill.jpg')"
+    ></div>
 
-    <div class="ascii-footer">
-      <div class="ascii-footer-scroll">
-              <pre>
-        <span class="flower1">        ,,,</span>                      <span class="flower2">,,, </span>
-        <span class="flower1">       {{{}}</span>    <span class="flower3">,,,</span>             <span class="flower2">{{{}}    ,,,</span>
-        <span class="flower1">    ,,, ~Y~</span>    <span class="flower3">{{{}},,, </span>     <span class="flower2">,,, ~Y~    {{{}},,, </span>
-        <span class="flower1">   {{}}} |/,,,</span>  <span class="flower3">~Y~{{}}} </span>   <span class="flower2">{{}}} |/,,,  ~Y~{{}}} </span>
-        <span class="stem1">    ~Y~ \|{{}}}/\|/ ~Y~</span>  <span class="stem2">,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,</span>
-        <span class="stem1">    \|/ \|/~Y~  \|,,,|/</span> <span class="stem2">{{}}} \|/ \|/~Y~  \|,,,|/ {{}}}</span>
-        <span class="stem2">    \|/ \|/\|/  \{{{}}/</span>  <span class="stem3">~Y~ \|/ \|/\|/  \{{{}}/  ~Y~</span>
-        <span class="stem2">    \|/\\|/\|/ \\|~Y~//</span>  <span class="stem3">\|/ \|/\\|/\|/ \\|~Y~//  \|/</span>
-        <span class="stem3">    \|//\|/\|/,\\|/|/|//</span> <span class="stem3">\|/ \|//\|/\|/,\\|/|/|// \|/</span>
-        <span class="grass">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></pre>
-              <pre>
-        <span class="flower1">        ,,,</span>                      <span class="flower2">,,, </span>
-        <span class="flower1">       {{{}}</span>    <span class="flower3">,,,</span>             <span class="flower2">{{{}}    ,,,</span>
-        <span class="flower1">    ,,, ~Y~</span>    <span class="flower3">{{{}},,, </span>     <span class="flower2">,,, ~Y~    {{{}},,, </span>
-        <span class="flower1">   {{}}} |/,,,</span>  <span class="flower3">~Y~{{}}} </span>   <span class="flower2">{{}}} |/,,,  ~Y~{{}}} </span>
-        <span class="stem1">    ~Y~ \|{{}}}/\|/ ~Y~</span>  <span class="stem2">,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,</span>
-        <span class="stem1">    \|/ \|/~Y~  \|,,,|/</span> <span class="stem2">{{}}} \|/ \|/~Y~  \|,,,|/ {{}}}</span>
-        <span class="stem2">    \|/ \|/\|/  \{{{}}/</span>  <span class="stem3">~Y~ \|/ \|/\|/  \{{{}}/  ~Y~</span>
-        <span class="stem2">    \|/\\|/\|/ \\|~Y~//</span>  <span class="stem3">\|/ \|/\\|/\|/ \\|~Y~//  \|/</span>
-        <span class="stem3">    \|//\|/\|/,\\|/|/|//</span> <span class="stem3">\|/ \|//\|/\|/,\\|/|/|// \|/</span>
-        <span class="grass">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></pre>
-              <pre>
-        <span class="flower1">        ,,,</span>                      <span class="flower2">,,, </span>
-        <span class="flower1">       {{{}}</span>    <span class="flower3">,,,</span>             <span class="flower2">{{{}}    ,,,</span>
-        <span class="flower1">    ,,, ~Y~</span>    <span class="flower3">{{{}},,, </span>     <span class="flower2">,,, ~Y~    {{{}},,, </span>
-        <span class="flower1">   {{}}} |/,,,</span>  <span class="flower3">~Y~{{}}} </span>   <span class="flower2">{{}}} |/,,,  ~Y~{{}}} </span>
-        <span class="stem1">    ~Y~ \|{{}}}/\|/ ~Y~</span>  <span class="stem2">,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,</span>
-        <span class="stem1">    \|/ \|/~Y~  \|,,,|/</span> <span class="stem2">{{}}} \|/ \|/~Y~  \|,,,|/ {{}}}</span>
-        <span class="stem2">    \|/ \|/\|/  \{{{}}/</span>  <span class="stem3">~Y~ \|/ \|/\|/  \{{{}}/  ~Y~</span>
-        <span class="stem2">    \|/\\|/\|/ \\|~Y~//</span>  <span class="stem3">\|/ \|/\\|/\|/ \\|~Y~//  \|/</span>
-        <span class="stem3">    \|//\|/\|/,\\|/|/|//</span> <span class="stem3">\|/ \|//\|/\|/,\\|/|/|// \|/</span>
-        <span class="grass">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></pre>
-              <pre>
-        <span class="flower1">        ,,,</span>                      <span class="flower2">,,, </span>
-        <span class="flower1">       {{{}}</span>    <span class="flower3">,,,</span>             <span class="flower2">{{{}}    ,,,</span>
-        <span class="flower1">    ,,, ~Y~</span>    <span class="flower3">{{{}},,, </span>     <span class="flower2">,,, ~Y~    {{{}},,, </span>
-        <span class="flower1">   {{}}} |/,,,</span>  <span class="flower3">~Y~{{}}} </span>   <span class="flower2">{{}}} |/,,,  ~Y~{{}}} </span>
-        <span class="stem1">    ~Y~ \|{{}}}/\|/ ~Y~</span>  <span class="stem2">,,, ~Y~ \|{{}}}/\|/ ~Y~  ,,,</span>
-        <span class="stem1">    \|/ \|/~Y~  \|,,,|/</span> <span class="stem2">{{}}} \|/ \|/~Y~  \|,,,|/ {{}}}</span>
-        <span class="stem2">    \|/ \|/\|/  \{{{}}/</span>  <span class="stem3">~Y~ \|/ \|/\|/  \{{{}}/  ~Y~</span>
-        <span class="stem2">    \|/\\|/\|/ \\|~Y~//</span>  <span class="stem3">\|/ \|/\\|/\|/ \\|~Y~//  \|/</span>
-        <span class="stem3">    \|//\|/\|/,\\|/|/|//</span> <span class="stem3">\|/ \|//\|/\|/,\\|/|/|// \|/</span>
-        <span class="grass">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span></pre>
-        
+    <!-- Section 2: Background transition -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated"
+      style="background-image: url('images/backgrounds/flow.JPG')"
+    ></div>
+
+    <!-- Section 3: Orbit with skull -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[3]"
+      style="background-image: url('images/backgrounds/goons.JPG')"
+    >
+      <div
+        class="absolute inset-0 w-full h-full grid place-items-center z-[100]"
+      >
+        <div class="flex flex-col items-center mt-64">
+          <div
+            class="aspect-square w-[min(500px,75vw)] -ml-4"
+            id="orbit2"
+          ></div>
+          <img
+            src="images/skele-head.gif"
+            alt="skeleton head"
+            class="-mt-39 max-h-[700px] drop-shadow-[0_0_10px_rgba(255,255,255,0.4)] gpu-accelerated"
+          />
+        </div>
       </div>
     </div>
 
-    <div class="sidebar">
-      <center><h3>Projects</h3></center>
-      <a href="https://arxiv.org/abs/2410.02052" class="project-link">
-          <div class="project-title">ExACT</div>
-          <div class="project-desc">Reflective-MCTS and Exploratory Learning for web-based LLM agents.</div>
-      </a>
-      <a href="#" class="project-link">
-          <div class="project-title">CharactAR</div>
-          <div class="project-desc">Augmented reality customizable chat companion.</div>
-      </a>
-      <a href="#" class="project-link">
-          <div class="project-title">Yogi</div>
-          <div class="project-desc">Full-stack web-app for meditation tracking.</div>
-      </a>
-      <a href="#" class="project-link">
-        <div class="project-title">Vikky's Present</div>
-        <div class="project-desc">A secret timer to track my brother's journey.</div>
-    </a>
-    </div>
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[2]"
+      style="background-image: url('images/backgrounds/gothic.JPG')"
+    ></div>
 
-    <!-- Interact.js for drag functionality -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[1]"
+      style="background-image: url('images/backgrounds/brozas.JPG')"
+    ></div>
+
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    <script>
-      // Make the Dharma Chakra draggable
-      interact('#dharma-chakra').draggable({
-        inertia: true,
-        modifiers: [
-          interact.modifiers.restrictRect({
-            restriction: 'body',
-            endOnly: true
-          })
-        ],
-        listeners: {
-          move(event) {
-            const target = event.target;
-            const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-            const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-            
-            target.style.transform = `translate(${x}px, ${y}px)`;
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
-          }
-        }
-      });
-    </script>
-</body>
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
 </html>

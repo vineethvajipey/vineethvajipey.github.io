@@ -1,0 +1,18 @@
+/* Custom Cursor Styles */
+a,
+a:link,
+a:visited {
+  cursor: url("images/cursor-main.png") 0 0, pointer;
+}
+
+a:hover,
+a:hover *,
+.section-content a:hover,
+.section-content a:hover * {
+  cursor: url("images/cursor-hover.png") 0 0, pointer !important;
+}
+
+a:active,
+*:active {
+  cursor: url("images/cursor-special.png") 0 0, pointer !important;
+}

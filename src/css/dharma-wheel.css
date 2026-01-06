@@ -1,0 +1,29 @@
+/* Dharma Wheel Component */
+.dharma-wheel-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 20;
+  cursor: url("images/cursor-hover.png") 0 0, grab;
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.dharma-wheel-container:active {
+  cursor: url("images/cursor-special.png") 0 0, grabbing;
+}
+
+.dharma-wheel {
+  width: 70px;
+  height: 70px;
+  transition: transform 0.1s ease-out;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.dharma-wheel:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+}

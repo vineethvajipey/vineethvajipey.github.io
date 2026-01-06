@@ -1,0 +1,47 @@
+/* Hero Section Styles */
+.hero-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.hero-skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-skeleton-wrap .orbit-wrap {
+  width: min(200px, 35vw);
+  margin-bottom: -3rem;
+  margin-left: -11rem;
+}
+
+.hero-skeleton-wrap .skeleton-img {
+  height: 53vh;
+  max-width: 70vw;
+  padding-right: 10vw;
+  padding-left: 5vw;
+}
+
+.hero-name-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

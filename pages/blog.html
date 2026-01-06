@@ -2,29 +2,31 @@
 <html>
 <head>
     <title>Vineeth Vajipey</title>
-    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/css/tailwind.css">
 </head>
-<body>
-    <div id="menu"></div>
-        <p><a href="../index.html">Home</a></p>
-        <p><a href="https://scholar.google.com/citations?user=xiKrcQgAAAAJ&hl=en&oi=ao">Research</a></p>
-        <p><a href="https://devpost.com/VineethVajipey">Projects</a></p>
-        <p><a href="https://github.com/vineethvajipey">Github</a></p>
-        <p><a href="https://www.linkedin.com/in/vineeth-vajipey/">Linkedin</a></p>
+<body class="text-left block font-mono mx-[20%] bg-gray-50 pb-48">
+    <div id="menu" class="fixed top-[2%] left-[2%] w-[5%] p-1 box-border">
+        <!-- Navigation will be populated by JS -->
     </div>
 
     <br>
     <br>
     
     <center>
-    <div style="margin-top: 75px;">
+    <div class="mt-20">
         <div id="blog">
-            <p><i>my-blog:</i></p>
-            <h2><a href="blog/post1.html">12-10-24, honey wasp</a></h2>
-            <h2><a href="blog/post2.html">12-22-24, the big green</a></h2>
+            <p class="p-[1%] italic">my-blog:</p>
+            <h2 class="p-[1%]"><a href="blog/post1.html" class="no-underline text-blue-600">12-10-24, honey wasp</a></h2>
+            <h2 class="p-[1%]"><a href="blog/post2.html" class="no-underline text-blue-600">12-22-24, the big green</a></h2>
         </div> 
     </div>
     </center>
 
+    <script type="module">
+        import { Navigation } from '../src/js/Navigation.js';
+        new Navigation();
+    </script>
 </body>
 </html>

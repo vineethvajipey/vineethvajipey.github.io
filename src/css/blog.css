@@ -1,0 +1,133 @@
+/* Blog Styles */
+#menu {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  width: 5%;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+#menu a {
+  text-align: center;
+  display: block; 
+  padding: 10px; 
+  margin-bottom: 2%;
+  background-color: rgb(249, 247, 244);
+  text-decoration: none;
+  border: 1px dashed black;
+  box-sizing: border-box;
+  font-size: small;
+}
+
+#blog h2 {
+  padding: 1%;
+}
+
+#blog a {
+  text-decoration: none;
+  color: rgb(36, 77, 213);
+}
+
+#title_card h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(40, 40, 40);
+}
+
+/* Blog page body styles */
+.blog-body {
+  text-align: left;
+  display: block;
+  font-family: Menlo, Monaco, monospace;
+  margin: 0 20%;
+  background-color: rgb(246, 244, 244);
+  padding-bottom: 200px;
+}
+
+.blog-body h1 {
+  margin: 0 10%;
+  text-align: center;
+}
+
+/* ASCII Footer */
+.ascii-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(246, 244, 244);
+  padding: 20px 0;
+  font-family: Menlo, Monaco, monospace;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.ascii-footer-scroll {
+  display: inline-flex;
+  animation: scrollPattern 80s linear infinite;
+}
+
+.ascii-footer-scroll pre {
+  margin: 0;
+  padding-right: 50px; 
+  white-space: pre;
+  line-height: 1.2;
+  font-size: 12px;
+}
+
+.flower1 { color: #fb7185; }
+.flower2 { color: #fcd34d; }
+.flower3 { color: #c084fc; }
+.stem1 { color: #16a34a; }
+.stem2 { color: #22c55e; }
+.stem3 { color: #4ade80; }
+.grass { color: #15803d; }
+
+@keyframes scrollPattern {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background: #fafafa;
+  padding: 180px 20px;
+  border-left: 1px solid #eee;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.project-link {
+  display: block;
+  padding: 12px 15px;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.project-link:hover {
+  transform: translateX(-5px);
+  border-color: #ddd;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+}
+
+.project-title {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.project-desc {
+  font-size: 0.85em;
+  color: #666;
+}

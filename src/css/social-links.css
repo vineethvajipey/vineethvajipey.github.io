@@ -1,0 +1,77 @@
+/* Social Links Component */
+.social-links {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  pointer-events: auto;
+}
+
+.social-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.social-ball {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-ball svg {
+  width: 16px;
+  height: 16px;
+  fill: #000;
+}
+
+.social-link:hover .social-ball {
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.social-connector {
+  width: 50px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.social-label {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateX(-50%) translateY(4px);
+}
+
+.social-link:hover .social-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.social-label::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+}

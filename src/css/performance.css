@@ -1,0 +1,75 @@
+/* Performance Optimizations */
+
+/* GPU acceleration for animated elements */
+.dharma-wheel,
+.hero-inner,
+.social-ball,
+.orbit-wrap,
+.bg-section {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Optimize repaints for smooth scrolling */
+.bg-section {
+  contain: layout style;
+  transform: translateZ(0);
+}
+
+/* Optimize image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+}
+
+.skeleton-img,
+.orbit-skull {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Prevent layout shifts */
+.orbit-wrap {
+  contain: layout;
+}
+
+.social-links {
+  contain: layout;
+}
+
+/* Optimize font loading */
+@font-display: swap;
+
+/* Preload critical fonts */
+.hero-content,
+.social-label {
+  font-display: swap;
+}
+
+/* Optimize animations for 60fps */
+@keyframes optimizedSpin {
+  from {
+    transform: rotate(0deg) translateZ(0);
+  }
+  to {
+    transform: rotate(360deg) translateZ(0);
+  }
+}
+
+/* Use hardware acceleration for transforms */
+.dharma-wheel-container:active {
+  transform: translateZ(0);
+}
+
+/* Optimize SVG rendering */
+.orbit-wrap svg {
+  shape-rendering: geometricPrecision;
+  contain: layout;
+}
+
+/* Critical content above the fold */
+.hero-content {
+  contain: layout style;
+  isolation: isolate;
+}

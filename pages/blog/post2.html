@@ -2,24 +2,28 @@
 <html>
 <head>
     <title>🌊</title>
-    <link rel="stylesheet" type="text/css" href="../../stylesheets/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../src/css/tailwind.css">
 </head>
-<body>
-    <div id="menu">
-        <p><a href="../home.html">Home</a></p>
-        <p><a href="../reading.html">Reading</a></p>
-        <p><a href="https://github.com/vineethvajipey">Github</a></p>
+<body class="text-left block font-mono mx-[20%] bg-gray-50 pb-48">
+    <div id="menu" class="fixed top-[2%] left-[2%] w-[20%] text-xs">
+        <!-- Navigation will be populated by JS -->
     </div>
 
     <br>
     <br>
 
-    <h1> the <br> big <br> green </h1>
+    <h1 class="mx-[10%] text-center"> the <br> big <br> green </h1>
 
     
 
     <br>
 
 
+    <script type="module">
+        import { Navigation } from '../../src/js/Navigation.js';
+        new Navigation();
+    </script>
 </body>
 </html>

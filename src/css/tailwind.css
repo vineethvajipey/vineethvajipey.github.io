@@ -1,0 +1,119 @@
+@import 'tailwindcss';
+
+/* Custom Cursors & Base Styles */
+@layer base {
+  html, body {
+    @apply bg-black w-full overflow-x-hidden;
+    overflow-y: auto;
+    cursor: url("images/cursor-main.png") 0 0, auto;
+  }
+  
+  a, a:link, a:visited {
+    cursor: url("images/cursor-main.png") 0 0, pointer;
+  }
+  
+  a:hover, a:hover *, .section-content a:hover, .section-content a:hover * {
+    cursor: url("images/cursor-hover.png") 0 0, pointer !important;
+  }
+  
+  a:active, *:active {
+    cursor: url("images/cursor-special.png") 0 0, pointer !important;
+  }
+}
+
+@layer utilities {
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-mobile {
+      @apply px-5 flex-col text-center;
+    }
+    
+    .skeleton-mobile {
+      @apply h-[35vh] pr-5 pl-2;
+    }
+    
+    .orbit-mobile {
+      @apply w-48 max-w-[60vw] ml-0 -mb-8;
+    }
+    
+    .social-mobile {
+      @apply flex-wrap gap-4 justify-center;
+    }
+    
+    .social-connector-mobile {
+      @apply hidden;
+    }
+    
+    .dharma-mobile {
+      @apply bottom-4 right-4;
+    }
+    
+    .dharma-mobile svg {
+      @apply w-20 h-20;
+    }
+  }
+  
+  /* Tablet adjustments */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .hero-tablet {
+      @apply px-[8vw];
+    }
+    
+    .skeleton-tablet {
+      @apply h-[45vh];
+    }
+    
+    .social-connector-tablet {
+      @apply w-8;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .no-motion {
+      @apply transition-none;
+    }
+  }
+}
+
+/* Complex Animations - Keep these as they're truly custom */
+@layer components {
+  /* Wheel sizes restored to original */
+  
+  /* Orbit animations */
+  .orbit-back,
+  .orbit-front {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .spoke {
+    stroke: rgba(255, 255, 255, 0.35);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .planet {
+    fill: #fff;
+  }
+
+  .moon {
+    fill: #fff;
+  }
+
+  /* Background sections with overlay */
+  .bg-section::before {
+    content: "";
+    @apply absolute inset-0 bg-black/40 z-[1];
+  }
+
+  /* Performance optimizations */
+  .gpu-accelerated {
+    will-change: transform;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+}

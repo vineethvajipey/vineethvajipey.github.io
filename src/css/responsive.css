@@ -1,0 +1,144 @@
+/* Responsive Design - Mobile First Approach */
+
+/* Base styles are mobile-first, then enhanced for larger screens */
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .section-content {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-skeleton-wrap .skeleton-img {
+    height: 35vh;
+    padding-right: 5vw;
+    padding-left: 2vw;
+  }
+
+  .hero-skeleton-wrap .orbit-wrap {
+    width: min(150px, 50vw);
+    margin-left: 0;
+    margin-bottom: -2rem;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .social-connector {
+    display: none;
+  }
+
+  .dharma-wheel-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .dharma-wheel {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Blog mobile adjustments */
+  .blog-body {
+    margin: 0 10%;
+    padding-bottom: 150px;
+  }
+
+  #menu {
+    width: 20%;
+    font-size: 10px;
+  }
+
+  #menu a {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-content {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  .section-content {
+    padding-left: 8vw;
+    padding-right: 8vw;
+  }
+
+  .hero-skeleton-wrap .skeleton-img {
+    height: 45vh;
+  }
+
+  .social-connector {
+    width: 30px;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1400px) {
+  .hero-content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+
+  .section-content {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+
+  .dharma-wheel {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .dharma-wheel {
+    transition: none;
+  }
+
+  .social-ball {
+    transition: none;
+  }
+
+  .social-label {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .bg-section::before {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .social-ball {
+    border: 2px solid #000;
+  }
+
+  .dharma-wheel {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+  }
+}
