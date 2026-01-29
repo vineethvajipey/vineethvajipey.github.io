@@ -5,6 +5,7 @@ import { OrbitWheel } from './OrbitWheel.js';
 import { ScrollHandler } from './ScrollHandler.js';
 import { DharmaWheel } from './DharmaWheel.js';
 import { ImageOptimization } from './ImageOptimization.js';
+import { ProjectGrid } from './ProjectGrid.js';
 
 // Initialize components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,4 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize image optimization
   const imageOptimization = new ImageOptimization();
+
+  // Initialize project grid
+  const projectGrid = new ProjectGrid();
 });

@@ -5,6 +5,9 @@
     <link rel="icon" type="image/gif" href="images/skele-head.gif" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/tailwind.css" />
   </head>
   <body>
@@ -125,14 +128,14 @@
             id="heroSkeleton"
           />
         </div>
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center" id="heroRight">
           <img
             src="images/vineeth-name.png"
             alt="Vineeth"
             id="heroName"
             class="gpu-accelerated"
           />
-          <div class="flex items-center mt-6 pointer-events-auto">
+          <div class="flex items-center mt-3 pointer-events-auto">
             <a
               href="https://github.com/vineethvajipey"
               class="relative flex items-center justify-center no-underline group"
@@ -141,7 +144,7 @@
               <span
                 class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
               >
-                <svg viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-black">
                   <path
                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
                   />
@@ -152,7 +155,7 @@
                 >GitHub</span
               >
             </a>
-            <div class="w-12 h-px bg-white/50"></div>
+            <div class="w-16 h-px bg-white/50"></div>
             <a
               href="https://www.linkedin.com/in/vineeth-vajipey/"
               class="relative flex items-center justify-center no-underline group"
@@ -161,7 +164,7 @@
               <span
                 class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
               >
-                <svg viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-black">
                   <path
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                   />
@@ -172,7 +175,7 @@
                 >LinkedIn</span
               >
             </a>
-            <div class="w-12 h-px bg-white/50"></div>
+            <div class="w-16 h-px bg-white/50"></div>
             <a
               href="https://devpost.com/VineethVajipey"
               class="relative flex items-center justify-center no-underline group"
@@ -181,7 +184,7 @@
               <span
                 class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
               >
-                <svg viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-black">
                   <path
                     d="M6.002 1.61L0 12.004L6.002 22.39h11.996L24 12.004L17.998 1.61H6.002zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595V5.694zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853H10.112z"
                   />
@@ -192,7 +195,7 @@
                 >Devpost</span
               >
             </a>
-            <div class="w-12 h-px bg-white/50"></div>
+            <div class="w-16 h-px bg-white/50"></div>
             <a
               href="https://scholar.google.com/citations?user=xiKrcQgAAAAJ&hl=en&oi=ao"
               class="relative flex items-center justify-center no-underline group"
@@ -201,7 +204,7 @@
               <span
                 class="w-8 h-8 bg-white rounded-full flex items-center justify-center transition-all duration-200 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]"
               >
-                <svg viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 fill-black">
                   <path
                     d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"
                   />
@@ -224,15 +227,93 @@
       style="background-image: url('images/backgrounds/hill.jpg')"
     ></div>
 
-    <!-- Section 2: Background transition -->
+    <!-- Section 2: Bio -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated"
+      id="bioSection"
       style="background-image: url('images/backgrounds/flow.JPG')"
-    ></div>
+    >
+      <div class="absolute inset-0 flex items-center justify-center z-[2]">
+        <div class="max-w-3xl mx-auto px-8 text-center" style="font-family: Helvetica, Arial, sans-serif;">
+          <p class="text-lg md:text-xl leading-relaxed mb-8 font-light" style="color: rgba(255,255,255,0.95);">
+            Vineeth Vajipey is a software engineer and ML researcher who builds things at the intersection of AI and creative tools. Most recently, he shipped viral music-tech apps at A Vinyl Bar in Shibuya and developed LLM systems at D.E. Shaw. He holds an MS in Computer Science from Columbia, where he pushed the boundaries of web agents and reinforcement learning.
+          </p>
+          <p class="text-lg md:text-xl leading-relaxed font-light" style="color: rgba(255,255,255,0.95);">
+            When he's not coding, you'll find him on the tennis court, running pick-up basketball games, making beats in his home studio, or hunting for rare Yu-Gi-Oh! cards. Diehard Warriors fan through and through.
+          </p>
+        </div>
+      </div>
+    </div>
 
-    <!-- Section 3: Orbit with skull ok-->
+    <!-- Section 3: Projects -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated"
+      id="projectsSection"
+      style="background-image: url('images/backgrounds/gothic.JPG')"
+    >
+      <div class="absolute inset-0 flex items-center justify-center z-[2]">
+        <div class="relative w-[min(95vh,95vw)] aspect-square" id="projectsGrid">
+          <img
+            src="images/grid.png"
+            alt="Projects grid"
+            class="w-full h-full object-contain pointer-events-none"
+          />
+          <!-- Project grid overlay - 3x3 draggable areas -->
+          <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 p-[8%]">
+            <div class="project-cell group flex items-center justify-center" data-project="1">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 1" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="2">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 2" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="3">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 3" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="4">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 4" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="5">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 5" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="6">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 6" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="7">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 7" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="8">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 8" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+            <div class="project-cell group flex items-center justify-center" data-project="9">
+              <div class="project-icon w-[70%] aspect-square rounded-full bg-white/10 border-2 border-white/30 transition-all duration-300 ease-out hover:bg-white/20 hover:border-white/60 hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] flex items-center justify-center cursor-grab active:cursor-grabbing touch-none">
+                <img src="images/skele-head.gif" alt="Project 9" class="w-[60%] h-[60%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Orbit with skull -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[3]"
+      id="skeleSection"
       style="background-image: url('images/backgrounds/goons.JPG')"
     >
       <div
@@ -252,14 +333,17 @@
       </div>
     </div>
 
+    <!-- Section 6 -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[2]"
-      style="background-image: url('images/backgrounds/gothic.JPG')"
+      style="background-image: url('images/backgrounds/brozas.JPG')"
     ></div>
 
+    <!-- Section 7: Sisters (last) -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[1]"
-      style="background-image: url('images/backgrounds/brozas.JPG')"
+      id="sistersSection"
+      style="background-image: url('images/backgrounds/sisters.JPG')"
     ></div>
 
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>

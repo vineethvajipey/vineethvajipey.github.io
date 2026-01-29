@@ -79,11 +79,21 @@ export class ScrollHandler {
 
   setupHeroTransformation() {
     const heroInner = document.getElementById("heroInner");
-    if (!heroInner) return;
+    const heroRight = document.getElementById("heroRight");
+    const socialLinksContainer = heroRight?.querySelector('.pointer-events-auto');
+    if (!heroInner || !heroRight) return;
 
     const MIN_SCALE = 0.2;
-    const FINAL_TOP_PERCENT = 8;
-    const TRANSITION_DISTANCE = window.innerHeight * 0.85;
+    const FINAL_TOP_PERCENT = 12;
+    const viewportHeight = window.innerHeight;
+
+    // Two-stage animation distances (with overlap for smooth transition)
+    const STAGE1_DISTANCE = viewportHeight * 0.25;  // First 25vh: shift title/links down + fade links
+    const STAGE2_START = viewportHeight * 0.15;     // Stage 2 starts at 15vh (more overlap)
+    const STAGE2_DISTANCE = viewportHeight * 0.7;   // 70vh for shrink and move up
+
+    // Stage 1 settings
+    const SHIFT_DOWN_AMOUNT = 50; // pixels to shift title/links down in stage 1
 
     let ticking = false;
 
@@ -91,20 +101,34 @@ export class ScrollHandler {
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
 
-      const progress = Math.min(scrollY / TRANSITION_DISTANCE, 1);
+      // Stage 1: Shift title/links down and fade links (0 to STAGE1_DISTANCE)
+      const stage1Progress = Math.min(scrollY / STAGE1_DISTANCE, 1);
 
-      const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-      const easedProgress = easeOutExpo(progress);
+      // Stage 2: Shrink and move up entire hero (starts early for smooth transition)
+      const stage2Scroll = Math.max(0, scrollY - STAGE2_START);
+      const stage2Progress = Math.min(stage2Scroll / STAGE2_DISTANCE, 1);
 
-      const scale = 1 - easedProgress * (1 - MIN_SCALE);
+      // Use smoother easing
+      const easeOutQuad = (t) => 1 - (1 - t) * (1 - t);
+      const easedStage1 = easeOutQuad(stage1Progress);
+      const easedStage2 = easeOutQuad(stage2Progress);
 
+      // Stage 1: Shift only the title and links down
+      const shiftDown = SHIFT_DOWN_AMOUNT * easedStage1;
+      heroRight.style.transform = `translateY(${shiftDown}px)`;
+
+      // Fade out social links during stage 1
+      if (socialLinksContainer) {
+        socialLinksContainer.style.opacity = 1 - easedStage1;
+      }
+
+      // Stage 2: Scale and move up the entire hero
+      const scale = 1 - easedStage2 * (1 - MIN_SCALE);
       const startPercent = 50;
-      const currentPercent =
-        startPercent - (startPercent - FINAL_TOP_PERCENT) * easedProgress;
-      const translateY =
-        ((currentPercent - startPercent) * viewportHeight) / 100;
+      const moveUpAmount = ((startPercent - FINAL_TOP_PERCENT) * viewportHeight) / 100;
+      const moveUp = moveUpAmount * easedStage2;
 
-      heroInner.style.transform = `translateY(${translateY}px) scale(${scale})`;
+      heroInner.style.transform = `translateY(${-moveUp}px) scale(${scale})`;
 
       ticking = false;
     }
