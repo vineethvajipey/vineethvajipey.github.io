@@ -1,59 +1,89 @@
 /**
- * ProjectGrid - Manages draggable project icons with interact.js
+ * ProjectGrid - Manages project positions and hover labels
  */
 export class ProjectGrid {
   constructor() {
-    this.setupDragInteraction();
+    this.projectLabel = document.getElementById("projectLabel");
+    this.projectLabelLogo = document.getElementById("projectLabelLogo");
+    this.projectLabelName = document.getElementById("projectLabelName");
+
+    // Define custom positions for each project (x, y offsets in pixels from default grid position)
+    // Positive x = right, negative x = left
+    // Positive y = down, negative y = up
+    this.projectPositions = {
+      Fireflower: { x: -15, y: 26 },
+      Looper: { x: -20, y: 97 },
+      Quarto: { x: -12, y: 25 },
+      CharactAR: { x: -15, y: 0 },
+      Skele: { x: -15, y: -5 },
+    };
+
+    // Project logo paths
+    this.projectLogos = {
+      Fireflower: "images/project logos/fireflower.png",
+      Looper: "images/project logos/looper.png",
+      Quarto: "images/project logos/quarto.png",
+      CharactAR: "images/project logos/charactAR.png",
+      Skele: "images/skele-head.gif",
+    };
+
+    this.applyPositions();
+    this.setupHoverInteraction();
   }
 
-  setupDragInteraction() {
-    if (typeof interact === 'undefined') {
-      setTimeout(() => this.setupDragInteraction(), 100);
-      return;
-    }
+  applyPositions() {
+    const projectCells = document.querySelectorAll(".project-cell");
 
-    interact('.project-icon')
-      .draggable({
-        inertia: {
-          resistance: 12,
-          minSpeed: 200,
-          endSpeed: 20
-        },
-        modifiers: [
-          interact.modifiers.restrictRect({
-            restriction: '#projectsGrid',
-            endOnly: false
-          })
-        ],
-        listeners: {
-          start: (event) => {
-            const target = event.target;
-            target.style.zIndex = '100';
-            target.style.transition = 'none';
-          },
-          move: (event) => {
-            const target = event.target;
-            const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-            const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    projectCells.forEach((cell) => {
+      const projectName = cell.getAttribute("data-project");
+      const position = this.projectPositions[projectName];
 
-            target.style.transform = `translate(${x}px, ${y}px) scale(1.15)`;
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
-          },
-          end: (event) => {
-            const target = event.target;
-            target.style.zIndex = '';
-            target.style.transition = 'all 0.3s ease-out';
-          }
+      if (position && (position.x !== 0 || position.y !== 0)) {
+        const icon = cell.querySelector(".project-icon");
+        if (icon) {
+          icon.style.transform = `translate(${position.x}px, ${position.y}px)`;
         }
-      })
-      .on('tap', (event) => {
-        const projectCell = event.target.closest('.project-cell');
-        if (projectCell) {
-          const projectId = projectCell.getAttribute('data-project');
-          console.log(`Project ${projectId} clicked`);
-          // Future: open project modal or navigate to project page
+      }
+    });
+  }
+
+  setupHoverInteraction() {
+    const projectCells = document.querySelectorAll(".project-cell");
+
+    projectCells.forEach((cell) => {
+      const projectName = cell.getAttribute("data-project");
+      const position = this.projectPositions[projectName] || { x: 0, y: 0 };
+
+      cell.addEventListener("mouseenter", () => {
+        if (this.projectLabel && projectName) {
+          // Set logo
+          if (this.projectLabelLogo && this.projectLogos[projectName]) {
+            this.projectLabelLogo.src = this.projectLogos[projectName];
+            this.projectLabelLogo.alt = projectName;
+          }
+          // Set name
+          if (this.projectLabelName) {
+            this.projectLabelName.textContent = projectName;
+          }
+          this.projectLabel.style.opacity = "1";
+        }
+        // Maintain position + add scale on hover
+        const icon = cell.querySelector(".project-icon");
+        if (icon) {
+          icon.style.transform = `translate(${position.x}px, ${position.y}px) scale(1.1)`;
         }
       });
+
+      cell.addEventListener("mouseleave", () => {
+        if (this.projectLabel) {
+          this.projectLabel.style.opacity = "0";
+        }
+        // Reset to just position
+        const icon = cell.querySelector(".project-icon");
+        if (icon) {
+          icon.style.transform = `translate(${position.x}px, ${position.y}px)`;
+        }
+      });
+    });
   }
 }

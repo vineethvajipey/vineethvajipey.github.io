@@ -80,6 +80,7 @@ export class ScrollHandler {
   setupHeroTransformation() {
     const heroInner = document.getElementById("heroInner");
     const heroRight = document.getElementById("heroRight");
+    const heroContent = document.getElementById("heroContent");
     const socialLinksContainer = heroRight?.querySelector('.pointer-events-auto');
     if (!heroInner || !heroRight) return;
 
@@ -93,7 +94,10 @@ export class ScrollHandler {
     const STAGE2_DISTANCE = viewportHeight * 0.7;   // 70vh for shrink and move up
 
     // Stage 1 settings
-    const SHIFT_DOWN_AMOUNT = 50; // pixels to shift title/links down in stage 1
+    const SHIFT_DOWN_AMOUNT = 80; // pixels to shift title/links down in stage 1
+
+    // Opacity settings - reduce opacity when hero overlaps with content sections
+    const MIN_OPACITY = 0.35;  // Don't fade below this
 
     let ticking = false;
 
@@ -129,6 +133,45 @@ export class ScrollHandler {
       const moveUp = moveUpAmount * easedStage2;
 
       heroInner.style.transform = `translateY(${-moveUp}px) scale(${scale})`;
+
+      // Reduce hero opacity when overlapping with content elements
+      if (heroContent) {
+        const heroRect = heroInner.getBoundingClientRect();
+
+        // Check if projects section is visible - fade out completely
+        const projectsSection = document.getElementById('projectsSection');
+        let onProjectsPage = false;
+        if (projectsSection) {
+          const projectsRect = projectsSection.getBoundingClientRect();
+          onProjectsPage = projectsRect.top < viewportHeight * 0.5 && projectsRect.bottom > 0;
+        }
+
+        // Check for overlap with bio content
+        const bioContent = document.querySelector('#bioSection .max-w-3xl');
+        let isOverlappingBio = false;
+        if (bioContent) {
+          const bioRect = bioContent.getBoundingClientRect();
+          if (heroRect.right > bioRect.left &&
+              heroRect.left < bioRect.right &&
+              heroRect.bottom > bioRect.top &&
+              heroRect.top < bioRect.bottom) {
+            isOverlappingBio = true;
+          }
+        }
+
+        // Determine target opacity
+        let targetOpacity = 1;
+        if (onProjectsPage) {
+          targetOpacity = 0;
+        } else if (isOverlappingBio) {
+          targetOpacity = MIN_OPACITY;
+        }
+
+        // Smoothly transition opacity
+        const currentOpacity = parseFloat(heroContent.style.opacity) || 1;
+        const newOpacity = currentOpacity + (targetOpacity - currentOpacity) * 0.15;
+        heroContent.style.opacity = newOpacity;
+      }
 
       ticking = false;
     }
