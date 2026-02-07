@@ -4,8 +4,6 @@
 export class ProjectGrid {
   constructor() {
     this.projectLabel = document.getElementById("projectLabel");
-    this.projectLabelLogo = document.getElementById("projectLabelLogo");
-    this.projectLabelName = document.getElementById("projectLabelName");
 
     // Define custom positions for each project (x, y offsets in pixels from default grid position)
     // Positive x = right, negative x = left
@@ -16,15 +14,6 @@ export class ProjectGrid {
       Quarto: { x: -12, y: 25 },
       CharactAR: { x: -15, y: 0 },
       Skele: { x: -15, y: -5 },
-    };
-
-    // Project logo paths
-    this.projectLogos = {
-      Fireflower: "images/project logos/fireflower.png",
-      Looper: "images/project logos/looper.png",
-      Quarto: "images/project logos/quarto.png",
-      CharactAR: "images/project logos/charactAR.png",
-      Skele: "images/skele-head.gif",
     };
 
     this.applyPositions();
@@ -56,15 +45,7 @@ export class ProjectGrid {
 
       cell.addEventListener("mouseenter", () => {
         if (this.projectLabel && projectName) {
-          // Set logo
-          if (this.projectLabelLogo && this.projectLogos[projectName]) {
-            this.projectLabelLogo.src = this.projectLogos[projectName];
-            this.projectLabelLogo.alt = projectName;
-          }
-          // Set name
-          if (this.projectLabelName) {
-            this.projectLabelName.textContent = projectName;
-          }
+          this.projectLabel.textContent = projectName;
           this.projectLabel.style.opacity = "1";
         }
         // Maintain position + add scale on hover

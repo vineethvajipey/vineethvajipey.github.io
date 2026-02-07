@@ -60,12 +60,24 @@ export class ScrollHandler {
   }
 
   setupSectionObserver() {
+    const pageIndicatorDot = document.getElementById("pageIndicatorDot");
+    const pageIndicator = document.getElementById("pageIndicator");
+
+    // Calculate dot positions dynamically from the actual DOM elements
+    const dotElements = document.querySelectorAll('#pageIndicator [data-section]');
+    const dotPositions = Array.from(dotElements).map(el => el.offsetTop);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
             const sections = document.querySelectorAll(".bg-section");
             this.currentSection = Array.from(sections).indexOf(entry.target);
+
+            // Update indicator dot position (vertical)
+            if (pageIndicatorDot && dotPositions[this.currentSection] !== undefined) {
+              pageIndicatorDot.style.top = `${dotPositions[this.currentSection]}px`;
+            }
           }
         });
       },
@@ -138,12 +150,20 @@ export class ScrollHandler {
       if (heroContent) {
         const heroRect = heroInner.getBoundingClientRect();
 
-        // Check if projects section is visible - fade out completely
+        // Check if we're past the bio section (projects and beyond) - fade out
         const projectsSection = document.getElementById('projectsSection');
-        let onProjectsPage = false;
+        let pastBioSection = false;
         if (projectsSection) {
           const projectsRect = projectsSection.getBoundingClientRect();
-          onProjectsPage = projectsRect.top < viewportHeight * 0.5 && projectsRect.bottom > 0;
+          pastBioSection = projectsRect.top < viewportHeight * 0.5;
+        }
+
+        // Check if we're on the last section (sisters) - fade back in
+        const sistersSection = document.getElementById('sistersSection');
+        let onLastSection = false;
+        if (sistersSection) {
+          const sistersRect = sistersSection.getBoundingClientRect();
+          onLastSection = sistersRect.top < viewportHeight * 0.5 && sistersRect.bottom > 0;
         }
 
         // Check for overlap with bio content
@@ -161,8 +181,10 @@ export class ScrollHandler {
 
         // Determine target opacity
         let targetOpacity = 1;
-        if (onProjectsPage) {
-          targetOpacity = 0;
+        if (onLastSection) {
+          targetOpacity = 1; // Fade back in on last section
+        } else if (pastBioSection) {
+          targetOpacity = 0; // Stay faded from projects until sisters
         } else if (isOverlappingBio) {
           targetOpacity = MIN_OPACITY;
         }

@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="./src/css/tailwind.css" />
   </head>
   <body>
-    <!-- Dharma Wheel Navigation -->
+    <!-- Dharma Wheel Navigation (bottom left) -->
     <button
-      class="fixed bottom-8 right-8 z-20 bg-transparent border-none p-0 outline-none touch-none select-none gpu-accelerated dharma-mobile"
+      class="fixed bottom-8 right-8 z-20 bg-transparent border-none p-0 outline-none touch-none select-none gpu-accelerated"
       style="
         cursor:
           url(&quot;images/cursor-hover.png&quot;) 0 0,
@@ -26,7 +26,7 @@
       id="dharmaWheelContainer"
     >
       <svg
-        class="w-18 h-18 transition-transform duration-100 ease-out drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] gpu-accelerated"
+        class="w-14 h-14 transition-transform duration-100 ease-out drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] gpu-accelerated"
         id="dharmaWheel"
         viewBox="0 0 100 100"
       >
@@ -113,6 +113,48 @@
         <circle cx="20.3" cy="20.3" r="6" fill="rgba(230, 230, 230, 0.9)" />
       </svg>
     </button>
+
+    <!-- Page dots indicator (vertical, centered) -->
+    <div class="fixed left-8 top-1/2 z-20" style="transform: translateY(-50%);" id="pageIndicator">
+        <!-- Vertical line -->
+        <div class="absolute left-[3px] top-1 bottom-1 w-px bg-white/40"></div>
+
+        <!-- Dots with labels -->
+        <div class="relative flex flex-col gap-6">
+          <div class="group flex items-center cursor-pointer" data-section="0">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Home</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="1">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">About</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="2">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Projects</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="3">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Skele</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="4">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Brozas</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="5">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Sisters</span>
+          </div>
+        </div>
+
+          <!-- Moving indicator dot -->
+          <div
+            class="absolute w-3 h-3 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.6)] transition-all duration-500 ease-out z-20"
+            id="pageIndicatorDot"
+            style="top: -2px; left: -2px;"
+          ></div>
+        </div>
+    </div>
 
     <!-- Hero content that transforms into sticky header -->
     <div
@@ -307,20 +349,20 @@
             </h3>
             <div class="space-y-1">
               <div class="flex justify-between items-baseline">
+                <span class="font-medium text-base">Google</span>
+                <span class="text-sm opacity-70">Jan '26 – Present</span>
+              </div>
+              <p class="text-sm opacity-80">Software Engineer · Mountain View, CA</p>
+              <div class="flex justify-between items-baseline mt-2">
                 <span class="font-medium text-base">ŌIÖ</span>
                 <span class="text-sm opacity-70">Sep '25 – Dec '25</span>
               </div>
-              <p class="text-sm opacity-80">Software Engineer · London, UK</p>
+              <p class="text-sm opacity-80">Creative Technologist · London, UK</p>
               <div class="flex justify-between items-baseline mt-2">
                 <span class="font-medium text-base">A Vinyl Bar in Shibuya</span>
                 <span class="text-sm opacity-70">May '25 – Aug '25</span>
               </div>
               <p class="text-sm opacity-80">Software Engineer · Palo Alto, CA</p>
-              <div class="flex justify-between items-baseline mt-2">
-                <span class="font-medium text-base">D.E. Shaw</span>
-                <span class="text-sm opacity-70">May '24 – Aug '24</span>
-              </div>
-              <p class="text-sm opacity-80">Software Engineering Intern · Hyderabad, India</p>
             </div>
           </div>
         </div>
@@ -443,23 +485,12 @@
             </div>
           </div>
         </div>
-        <!-- Project label with logo and name -->
+        <!-- Project label -->
         <div
           id="projectLabel"
-          class="mt-2 flex flex-col items-center opacity-0 transition-opacity duration-300"
-        >
-          <img
-            id="projectLabelLogo"
-            src=""
-            alt=""
-            class="h-12 w-12 object-contain mb-2"
-          />
-          <span
-            id="projectLabelName"
-            class="text-white text-xl font-light"
-            style="font-family: Helvetica, Arial, sans-serif"
-          ></span>
-        </div>
+          class="-mt-12 text-white text-xl font-light opacity-0 transition-opacity duration-300"
+          style="font-family: Helvetica, Arial, sans-serif"
+        ></div>
       </div>
     </div>
 
@@ -496,7 +527,7 @@
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[1]"
       id="sistersSection"
-      style="background-image: url(&quot;images/backgrounds/sisters.JPG&quot;)"
+      style="background-image: url(&quot;images/backgrounds/sisters.JPG&quot;); filter: brightness(1.5)"
     ></div>
 
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
