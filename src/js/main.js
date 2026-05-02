@@ -6,6 +6,7 @@ import { ScrollHandler } from './ScrollHandler.js';
 import { DharmaWheel } from './DharmaWheel.js';
 import { ImageOptimization } from './ImageOptimization.js';
 import { ProjectGrid } from './ProjectGrid.js';
+import { ThreeScene } from './ThreeScene.js';
 
 // Initialize components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
@@ -39,4 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize project grid
   const projectGrid = new ProjectGrid();
+
+  // Initialize 3D scene
+  const threeScene = new ThreeScene();
 });

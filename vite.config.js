@@ -18,7 +18,8 @@ export default defineConfig({
         manualChunks: {
           'orbit-animations': ['./src/js/OrbitWheel.js'],
           'scroll-effects': ['./src/js/ScrollHandler.js'],
-          'navigation': ['./src/js/Navigation.js']
+          'navigation': ['./src/js/Navigation.js'],
+          'three-scene': ['three', './src/js/ThreeScene.js']
         }
       }
     }

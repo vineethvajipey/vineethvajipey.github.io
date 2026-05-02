@@ -5,19 +5,19 @@
   html, body {
     @apply bg-black w-full overflow-x-hidden;
     overflow-y: auto;
-    cursor: url("images/cursor-main.png") 0 0, auto;
+    cursor: url("/images/cursors/cursor-main.png") 0 0, auto;
   }
   
   a, a:link, a:visited {
-    cursor: url("images/cursor-main.png") 0 0, pointer;
+    cursor: url("/images/cursors/cursor-main.png") 0 0, pointer;
   }
   
   a:hover, a:hover *, .section-content a:hover, .section-content a:hover * {
-    cursor: url("images/cursor-hover.png") 0 0, pointer !important;
+    cursor: url("/images/cursors/cursor-hover.png") 0 0, pointer !important;
   }
   
   a:active, *:active {
-    cursor: url("images/cursor-special.png") 0 0, pointer !important;
+    cursor: url("/images/cursors/cursor-special.png") 0 0, pointer !important;
   }
 }
 

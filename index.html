@@ -19,7 +19,7 @@
       class="fixed bottom-8 right-8 z-20 bg-transparent border-none p-0 outline-none touch-none select-none gpu-accelerated"
       style="
         cursor:
-          url(&quot;images/cursor-hover.png&quot;) 0 0,
+          url(&quot;images/cursors/cursor-hover.png&quot;) 0 0,
           grab;
       "
       aria-label="Spin wheel to next background"
@@ -142,6 +142,10 @@
             <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Brozas</span>
           </div>
           <div class="group flex items-center cursor-pointer" data-section="5">
+            <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
+            <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Model</span>
+          </div>
+          <div class="group flex items-center cursor-pointer" data-section="6">
             <div class="w-2 h-2 rounded-full bg-white/60 relative z-10"></div>
             <span class="ml-4 text-white/0 group-hover:text-white/90 text-sm transition-all duration-200 whitespace-nowrap" style="font-family: Helvetica, Arial, sans-serif;">Sisters</span>
           </div>
@@ -314,7 +318,7 @@
               in Mountain View, CA.
             </p>
             <p class="text-base md:text-lg leading-relaxed font-light">
-              He enjoys building robots, basketball, hiking, music production,
+              He enjoys basketball, hiking, building robots, music production,
               and yoga.
             </p>
           </div>
@@ -329,16 +333,18 @@
                 <span class="font-medium text-base">Columbia University</span>
                 <span class="text-sm opacity-70">Dec '24</span>
               </div>
-              <p class="text-sm opacity-80">
-                MS in Computer Science, GPA: 4.00
-              </p>
+              <div class="flex justify-between items-baseline">
+                <span class="text-sm opacity-80">MS in Computer Science</span>
+                <span class="text-sm opacity-70">New York, NY</span>
+              </div>
               <div class="flex justify-between items-baseline mt-2">
                 <span class="font-medium text-base">University of Maryland</span>
                 <span class="text-sm opacity-70">May '23</span>
               </div>
-              <p class="text-sm opacity-80">
-                BS in Computer Engineering, GPA: 3.97, Presidential Scholar
-              </p>
+              <div class="flex justify-between items-baseline">
+                <span class="text-sm opacity-80">BS in Computer Engineering</span>
+                <span class="text-sm opacity-70">College Park, MD</span>
+              </div>
             </div>
           </div>
 
@@ -352,17 +358,26 @@
                 <span class="font-medium text-base">Google</span>
                 <span class="text-sm opacity-70">Jan '26 – Present</span>
               </div>
-              <p class="text-sm opacity-80">Software Engineer · Mountain View, CA</p>
+              <div class="flex justify-between items-baseline">
+                <span class="text-sm opacity-80">Software Engineer</span>
+                <span class="text-sm opacity-70">Mountain View, CA</span>
+              </div>
               <div class="flex justify-between items-baseline mt-2">
                 <span class="font-medium text-base">ŌIÖ</span>
                 <span class="text-sm opacity-70">Sep '25 – Dec '25</span>
               </div>
-              <p class="text-sm opacity-80">Creative Technologist · London, UK</p>
+              <div class="flex justify-between items-baseline">
+                <span class="text-sm opacity-80">Creative Technologist</span>
+                <span class="text-sm opacity-70">London, UK</span>
+              </div>
               <div class="flex justify-between items-baseline mt-2">
                 <span class="font-medium text-base">A Vinyl Bar in Shibuya</span>
                 <span class="text-sm opacity-70">May '25 – Aug '25</span>
               </div>
-              <p class="text-sm opacity-80">Software Engineer · Palo Alto, CA</p>
+              <div class="flex justify-between items-baseline">
+                <span class="text-sm opacity-80">Software Engineer</span>
+                <span class="text-sm opacity-70">Palo Alto, CA</span>
+              </div>
             </div>
           </div>
         </div>
@@ -396,84 +411,99 @@
             />
             <!-- Project grid overlay - 3x3 clickable areas -->
             <div class="absolute inset-0 grid grid-cols-3 grid-rows-3 p-[8%]">
-              <a
-                href="#"
+              <div
                 class="project-cell group flex items-center justify-center"
                 data-project="Fireflower"
-                target="_blank"
+                data-coming-soon="true"
               >
                 <div
-                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 cursor-pointer touch-none"
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out touch-none"
                 >
                   <img
-                    src="images/project logos/fireflower.png"
+                    src="images/projects/fireflower.png"
                     alt="Fireflower"
                     class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
-              </a>
+              </div>
               <a
-                href="#"
+                href="https://looper-three.vercel.app"
                 class="project-cell group flex items-center justify-center"
                 data-project="Looper"
                 target="_blank"
               >
                 <div
-                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 cursor-pointer touch-none"
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out cursor-pointer touch-none"
                 >
                   <img
-                    src="images/project logos/looper.png"
+                    src="images/projects/looper.png"
                     alt="Looper"
                     class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
               </a>
               <a
-                href="#"
+                href="https://quarto-one.vercel.app/local"
                 class="project-cell group flex items-center justify-center"
                 data-project="Quarto"
                 target="_blank"
               >
                 <div
-                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 cursor-pointer touch-none"
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out cursor-pointer touch-none"
                 >
                   <img
-                    src="images/project logos/quarto.png"
+                    src="images/projects/quarto.png"
                     alt="Quarto"
                     class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
               </a>
               <a
-                href="#"
+                href="https://devpost.com/software/charactar"
                 class="project-cell group flex items-center justify-center"
                 data-project="CharactAR"
                 target="_blank"
               >
                 <div
-                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 cursor-pointer touch-none"
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out cursor-pointer touch-none"
                 >
                   <img
-                    src="images/project logos/charactAR.png"
+                    src="images/projects/charactAR.png"
                     alt="CharactAR"
                     class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
               </a>
-              <!-- Empty cells 5-8 -->
+              <!-- Empty cells 5-6 -->
               <div class="project-cell"></div>
               <div class="project-cell"></div>
-              <div class="project-cell"></div>
-              <div class="project-cell"></div>
-              <!-- Position 9: Skele -->
+              <!-- Position 7: Brozas -->
               <a
-                href="#"
+                href="https://brozas.vercel.app"
                 class="project-cell group flex items-center justify-center"
-                data-project="Skele"
+                data-project="Brozas"
                 target="_blank"
               >
                 <div
-                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-transform duration-300 ease-out hover:scale-110 cursor-pointer touch-none"
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out cursor-pointer touch-none"
+                >
+                  <img
+                    src="images/projects/brozas.png"
+                    alt="Brozas"
+                    class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                  />
+                </div>
+              </a>
+              <!-- Empty cell 8 -->
+              <div class="project-cell"></div>
+              <!-- Position 9: Skele (coming soon) -->
+              <div
+                class="project-cell group flex items-center justify-center"
+                data-project="Skele"
+                data-coming-soon="true"
+              >
+                <div
+                  class="project-icon w-[70%] aspect-square rounded-full flex items-center justify-center transition-all duration-300 ease-out touch-none"
                 >
                   <img
                     src="images/skele-head.gif"
@@ -481,7 +511,7 @@
                     class="w-[50%] h-[50%] object-contain drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                   />
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -517,13 +547,22 @@
       </div>
     </div>
 
-    <!-- Section 6 -->
+    <!-- Section 6: Brozas -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[2]"
       style="background-image: url(&quot;images/backgrounds/brozas.JPG&quot;)"
     ></div>
 
-    <!-- Section 7: Sisters (last) -->
+    <!-- Section 7: 3D Model -->
+    <div
+      class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[2]"
+      id="modelSection"
+      style="background-image: url('images/backgrounds/fire.JPG')"
+    >
+      <div id="threeContainer" class="absolute inset-0"></div>
+    </div>
+
+    <!-- Section 8: Sisters (last) -->
     <div
       class="bg-section h-screen w-full bg-cover bg-center bg-no-repeat relative gpu-accelerated z-[1]"
       id="sistersSection"

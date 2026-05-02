@@ -13,6 +13,7 @@ export class ProjectGrid {
       Looper: { x: -20, y: 97 },
       Quarto: { x: -12, y: 25 },
       CharactAR: { x: -15, y: 0 },
+      Brozas: { x: 65, y: -7 },
       Skele: { x: -15, y: -5 },
     };
 
@@ -45,13 +46,19 @@ export class ProjectGrid {
 
       cell.addEventListener("mouseenter", () => {
         if (this.projectLabel && projectName) {
-          this.projectLabel.textContent = projectName;
+          const isComingSoon = cell.getAttribute("data-coming-soon") === "true";
+          if (isComingSoon) {
+            this.projectLabel.innerHTML = `${projectName} <span style="color: #ef4444;">(coming soon)</span>`;
+          } else {
+            this.projectLabel.textContent = projectName;
+          }
           this.projectLabel.style.opacity = "1";
         }
-        // Maintain position + add scale on hover
+        // Maintain position + add invert on hover
         const icon = cell.querySelector(".project-icon");
         if (icon) {
-          icon.style.transform = `translate(${position.x}px, ${position.y}px) scale(1.1)`;
+          icon.style.transform = `translate(${position.x}px, ${position.y}px)`;
+          icon.style.filter = "invert(1)";
         }
       });
 
@@ -59,10 +66,11 @@ export class ProjectGrid {
         if (this.projectLabel) {
           this.projectLabel.style.opacity = "0";
         }
-        // Reset to just position
+        // Reset to just position, remove invert
         const icon = cell.querySelector(".project-icon");
         if (icon) {
           icon.style.transform = `translate(${position.x}px, ${position.y}px)`;
+          icon.style.filter = "none";
         }
       });
     });
